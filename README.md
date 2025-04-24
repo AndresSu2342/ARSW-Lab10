@@ -22,6 +22,18 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ![](images/part3/part3-function-configii.png)
 
+![Image](https://github.com/user-attachments/assets/6b552f97-0314-4eef-a68c-2e582eb0432d)
+
+![Image](https://github.com/user-attachments/assets/84e01ef8-a603-4714-ae18-691ad315ee34)
+
+![Image](https://github.com/user-attachments/assets/98078638-d4ec-44d7-9590-ad0a99354def)
+
+![Image](https://github.com/user-attachments/assets/f1c606b7-5717-4c33-b404-3cb1d5e8c1a6)
+
+![Image](https://github.com/user-attachments/assets/cfdd6e56-d1e3-457d-a20d-ddb5bc32bdbd)
+
+![Image](https://github.com/user-attachments/assets/308daa7f-7545-402c-b9f9-c54dbe4355d3)
+
 2. Instale la extensión de **Azure Functions** para Visual Studio Code.
 
 ![](images/part3/part3-install-extension.png)
