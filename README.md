@@ -46,6 +46,8 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ![](images/part3/part3-deploy-function-2.png)
 
+
+
 ![Image](https://github.com/user-attachments/assets/c116328e-23ba-4e73-9c6f-c7ad99d35310)
 
 ![Image](https://github.com/user-attachments/assets/c49a8441-0a6c-4bde-9978-b32141bd1001)
@@ -56,21 +58,82 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ![](images/part3/part3-test-function.png)
 
+Abrimos la funcion desplegada de Fibonacci dentro del portal y hacemos la prueba/ejecucion con su respectivo body de ejemplo y verificamos que nos devuelva el resultado
+
 ![Image](https://github.com/user-attachments/assets/a60f5fdf-6fa1-4f98-9c29-0fe7a0353b2d)
 
 5. Modifique la coleción de POSTMAN con NEWMAN de tal forma que pueda enviar 10 peticiones concurrentes. Verifique los resultados y presente un informe.
 
+Para esto dentro de postman hacemos una peticion a nuestra funcion desplegada en azure atraves de la URL que se nos da, guardamos la query en una coleccion y la exportamos
 
+![Image](https://github.com/user-attachments/assets/87a6f303-8f5c-48ee-95df-daaf31e4caa9)
+
+Despues usando newman vamos a realizar las 10 peticiones concurrentes 
+
+![Image](https://github.com/user-attachments/assets/38227674-de46-4bfa-8f24-bf7a19d42236)
+
+Y finalmente tenemos los resultados
+
+![Image](https://github.com/user-attachments/assets/e3a59585-e03b-446e-8d7a-01b28c7fae3b)
 
 6. Cree una nueva Function que resuleva el problema de Fibonacci pero esta vez utilice un enfoque recursivo con memoization. Pruebe la función varias veces, después no haga nada por al menos 5 minutos. Pruebe la función de nuevo con los valores anteriores. ¿Cuál es el comportamiento?.
 
 **Preguntas**
 
 * ¿Qué es un Azure Function?
+
+  Una **Azure Function** es un servicio de computación sin servidor (serverless) de Microsoft Azure que permite ejecutar pequeñas porciones de código (funciones) en la nube sin necesidad de aprovisionar o gestionar infraestructura.
+
 * ¿Qué es serverless?
+
+  **Serverless**, o "computación sin servidor", es un modelo de ejecución en la nube donde el proveedor (como Azure, AWS, etc.) se encarga de la administración completa de la infraestructura: escalado, disponibilidad, mantenimiento y aprovisionamiento.
+
 * ¿Qué es el runtime y que implica seleccionarlo al momento de crear el Function App?
+
+  El runtime en Azure Functions es el entorno que ejecuta el código de las funciones. Al momento de crear un Function App, se debe seleccionar una versión específica del runtime (por ejemplo, v4), lo cual define la compatibilidad con ciertas versiones de lenguajes, bibliotecas, bindings y configuraciones. Elegir un runtime implica:
+
+  * Compatibilidad con ciertas versiones del SDK o frameworks (Node.js, .NET, Python, etc.).
+
+  * Soporte para determinadas extensiones y bundles.
+
+  * Comportamiento del host (host.json) y estructura del proyecto.
+
+  Seleccionar un runtime incorrecto puede ocasionar errores de compatibilidad o despliegue, como dependencias no soportadas.
+
 * ¿Por qué es necesario crear un Storage Account de la mano de un Function App?
+
+  Azure Functions requiere un Azure Storage Account obligatorio para almacenar:
+
+  * Archivos de configuración y metadatos de la Function App.
+
+  * Logs y archivos generados por ejecuciones.
+
+  * Datos temporales necesarios por el runtime para el manejo del estado, como los de las funciones con bindings de colas, blobs o timers.
+
+  * El runtime se apoya en el Storage incluso si la función no usa datos persistentes explícitamente.
+
+  Sin una cuenta de almacenamiento asociada, el Function App no puede ejecutarse ni gestionarse correctamente.
+
 * ¿Cuáles son los tipos de planes para un Function App?, ¿En qué se diferencias?, mencione ventajas y desventajas de cada uno de ellos.
+
+  Existen tres tipos principales de planes en Azure Functions:
+
+  1. Consumption Plan (Plan de consumo)
+     * Escalado automático según demanda (de 0 a N instancias).
+     * Solo se cobra por el tiempo de ejecución y recursos usados. 
+     * Ideal para cargas eventuales o impredecibles.
+    
+  2. Premium Plan
+     * Escalado automático pero con instancias precalentadas (no hay cold start). 
+     * Soporte para redes virtuales (VNET), ejecución ilimitada y mayor capacidad.
+    
+  3. App Service Plan
+     * Se usa infraestructura fija, como en una Web App tradicional. 
+     * No escala automáticamente por ejecución, pero sí manualmente o por CPU/uso.
+
 * ¿Por qué la memoization falla o no funciona de forma correcta?
+
+    
+
 * ¿Cómo funciona el sistema de facturación de las Function App?
 * Informe
